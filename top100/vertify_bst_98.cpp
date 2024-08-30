@@ -11,6 +11,7 @@ struct TreeNode {
 class Solution {
 public:
     bool isValidBST(TreeNode* root) {
+        // 传入当前节点，及其范围
         return helper(root, LONG_MIN, LONG_MAX);
     }
     bool helper(TreeNode* root, long long lower, long long upper){
@@ -18,6 +19,7 @@ public:
         if(root == nullptr){
             return true;
         }
+        // 当前节点在范围内才可以，否则为假
         if(root->val <= lower || root->val >= upper){
             return false;
         }
